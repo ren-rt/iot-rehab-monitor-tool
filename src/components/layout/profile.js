@@ -70,18 +70,6 @@ export default function ProfilePage() {
             </div>
 
             <div className="detail-group">
-              <h4>Medical Information</h4>
-              <div className="detail-row">
-                <span className="detail-label">Affected Limb:</span>
-                <span className="detail-value">{userData.affectedLimb || 'Not specified'}</span>
-              </div>
-              <div className="detail-row">
-                <span className="detail-label">Duration:</span>
-                <span className="detail-value">{userData.duration ? `${userData.duration} months` : 'Not specified'}</span>
-              </div>
-            </div>
-
-            <div className="detail-group">
               <h4>Account Information</h4>
               <div className="detail-row">
                 <span className="detail-label">Patient ID:</span>

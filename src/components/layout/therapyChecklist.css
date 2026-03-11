@@ -1,0 +1,151 @@
+.container {
+  width: 900px;
+  min-height: 600px;
+  margin: auto;
+  padding: 42px;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  color: #2d5a4d;
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+.limbBox {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #cfe2e8;
+  border-radius: 12px;
+  background: #f8fafb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+.boxLabel {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #111827;
+  font-size: 16px;
+}
+.checklistContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checklistItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #c8dfd3;
+}
+.checkbox {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  accent-color: #4a9d7f;
+}
+.checkboxLabel {
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 15px;
+  color: #0f1724;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+.selectedLabel {
+  color: #334155;
+  font-weight: 700;
+}
+.exerciseBox {
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid #a8c8ba;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(45, 90, 77, 0.08);
+  min-height: 110px;
+}
+.exerciseLabel {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #0f1724;
+  font-size: 16px;
+}
+.emptyText {
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+}
+.resultBox {
+  padding: 22px;
+  border: 1px solid #a8c8ba;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(45, 90, 77, 0.08);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.resultText {
+  font-size: 22px;
+  color: #2d5a4d;
+  margin: 0;
+  font-weight: 700;
+}
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.bookButton {
+  margin-top: 6px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4a9a8b;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+  min-width: 220px;
+}
+.bookButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.bookedBox {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #a8c8ba;
+  box-shadow: 0 2px 8px rgba(45, 90, 77, 0.08);
+}
+.bookedText {
+  margin: 0;
+  color: #0f1724;
+  font-size: 18px;
+  font-weight: 700;
+}
