@@ -8,7 +8,6 @@ import './dashboard.css';
 import ProfilePage from '../layout/profile';
 import TherapyPage from '../layout/therapyChecklist';
 import HistoryPage from '../layout/therapyDetails';
-import VisualizationPage from '../layout/visualization';
 import ExerciseLibPage from '../layout/exerciseLib';
 import SessionRecordingPage from '../layout/sessionRecording';
 
@@ -34,8 +33,6 @@ export default function Dashboard() {
         return <TherapyPage />;
       case 'history':
         return <HistoryPage />;
-      case 'visualization':
-        return <VisualizationPage />;
       case 'exerciseLib':
         return <ExerciseLibPage />;
       case 'sessionRecording':

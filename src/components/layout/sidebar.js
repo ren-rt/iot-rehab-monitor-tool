@@ -6,9 +6,7 @@ export default function Sidebar({ activePage, onPageChange, onLogout }) {
     { id: 'profile', label: 'Profile', icon: '👤' },
       { id: 'exerciseLib', label: 'Exercise Library', icon: '📚' },
     { id: 'therapy', label: 'Therapy Checklist', icon: '🦾' },
-    { id: 'visualization', label: 'Visualization', icon: '📊' },
     { id: 'history', label: 'Session Details', icon: '📋' },
-  
     { id: 'sessionRecording', label: 'Session Recording', icon: '⏺️' }
   ];
 
