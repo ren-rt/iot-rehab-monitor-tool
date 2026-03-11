@@ -4,13 +4,12 @@ import { useAuth } from '../auth/AuthContext';
 import Sidebar from '../layout/sidebar';
 import './dashboard.css';
 
-// Import page components
 import ProfilePage from '../layout/profile';
 import TherapyPage from '../layout/therapyChecklist';
 import HistoryPage from '../layout/therapyDetails';
+import VisualizationPage from '../layout/visualization';
 import ExerciseLibPage from '../layout/exerciseLib';
 import SessionRecordingPage from '../layout/sessionRecording';
-import VisualizationPage from '../layout/visualization';
 
 export default function Dashboard() {
   const { logout } = useAuth();
@@ -28,30 +27,19 @@ export default function Dashboard() {
 
   const renderPage = () => {
     switch(activePage) {
-      case 'profile':
-        return <ProfilePage />;
-      case 'therapy':
-        return <TherapyPage />;
-      case 'history':
-        return <HistoryPage />;
-      case 'exerciseLib':
-        return <ExerciseLibPage />;
-      case 'sessionRecording':
-        return <SessionRecordingPage />;
-      case 'visualization':
-        return <VisualizationPage />;
-      default:
-        return <ProfilePage />;
+      case 'profile': return <ProfilePage />;
+      case 'therapy': return <TherapyPage onPageChange={setActivePage} />;
+      case 'history': return <HistoryPage />;
+      case 'visualization': return <VisualizationPage onPageChange={setActivePage} />;
+      case 'exerciseLib': return <ExerciseLibPage />;
+      case 'sessionRecording': return <SessionRecordingPage />;
+      default: return <ProfilePage />;
     }
   };
 
   return (
     <div className="dashboard">
-      <Sidebar 
-        activePage={activePage}
-        onPageChange={setActivePage}
-        onLogout={handleLogout}
-      />
+      <Sidebar activePage={activePage} onPageChange={setActivePage} onLogout={handleLogout} />
       <div className="main-panel">
         {renderPage()}
       </div>

@@ -250,3 +250,74 @@
     align-items: flex-start;
   }
 }
+
+.recording-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255, 50, 50, 0.15);
+  color: #ff4444;
+  border: 1px solid #ff444444;
+  animation: recordingPulse 2s infinite;
+}
+
+@keyframes recordingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.viz-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.end-session-btn {
+  padding: 10px 20px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: auto;
+  transition: opacity 0.2s;
+}
+
+.end-session-btn:hover { opacity: 0.85; }
+.end-session-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.angle-readout {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.session-info {
+  margin-top: 20px;
+  padding: 12px;
+  background: rgba(255, 68, 68, 0.08);
+  border-radius: 8px;
+  border: 1px solid #ff444422;
+}
+
+.session-info-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff6b6b;
+  margin-bottom: 8px;
+}
+
+.session-info-item {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 4px;
+}
