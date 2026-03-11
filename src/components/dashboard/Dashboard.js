@@ -10,6 +10,7 @@ import TherapyPage from '../layout/therapyChecklist';
 import HistoryPage from '../layout/therapyDetails';
 import ExerciseLibPage from '../layout/exerciseLib';
 import SessionRecordingPage from '../layout/sessionRecording';
+import VisualizationPage from '../layout/visualization';
 
 export default function Dashboard() {
   const { logout } = useAuth();
@@ -37,6 +38,8 @@ export default function Dashboard() {
         return <ExerciseLibPage />;
       case 'sessionRecording':
         return <SessionRecordingPage />;
+      case 'visualization':
+        return <VisualizationPage />;
       default:
         return <ProfilePage />;
     }
