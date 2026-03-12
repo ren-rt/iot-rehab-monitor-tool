@@ -63,6 +63,7 @@ export default function VisualizationPage({ onPageChange }) {
         imu2_ay: data.imu2?.ay ?? 0,
         fsr: data.fsr?.raw ?? 0,
         flex: data.flex?.raw ?? 0,
+        emg: data.emg?.raw ?? 0,
       };
 
       setHistory(prev => {
@@ -72,7 +73,7 @@ export default function VisualizationPage({ onPageChange }) {
 
       // Record data if session active
       if (activeSession?.status === 'active') {
-        recordingRef.current = [...recordingRef.current, point];
+        recordingRef.current = [...recordingRef.current, { ...point, emg: data.emg?.raw ?? 0 }];
       }
     }, () => setConnected(false));
     return () => unsub();
@@ -182,8 +183,11 @@ export default function VisualizationPage({ onPageChange }) {
   const fsrLabel = sensorData?.fsr?.label ?? 'none';
   const fsrRaw = sensorData?.fsr?.raw ?? 0;
   const flexRaw = sensorData?.flex?.raw ?? 0;
+  const emgRaw = sensorData?.emg?.raw ?? 0;
+  const emgVoltage = sensorData?.emg?.voltage ?? 0;
   const fsrPercent = Math.min(100, (fsrRaw / 4095) * 100);
   const flexPercent = Math.min(100, (flexRaw / 4095) * 100);
+  const emgPercent = Math.min(100, (emgRaw / 4095) * 100);
   const flexAngle = Math.round(flexToAngle(flexRaw) + 60);
 
   return (
@@ -253,6 +257,17 @@ export default function VisualizationPage({ onPageChange }) {
             <div className="sensor-val">{flexRaw}</div>
           </div>
 
+          <div className="sensor-row" style={{ marginTop: '12px' }}>
+            <div className="sensor-name">EMG</div>
+            <div className="sensor-bar-wrap">
+              <div className="sensor-bar" style={{ width: `${emgPercent}%`, background: '#a855f7' }} />
+            </div>
+            <div className="sensor-val">{emgRaw}</div>
+          </div>
+          <div className="fsr-label-badge" style={{ background: '#3b1f5e', color: '#c084fc', marginTop: 4 }}>
+            {emgVoltage.toFixed(3)}V — {emgRaw < 100 ? 'No activation' : emgRaw < 800 ? 'Low activity' : emgRaw < 2500 ? 'Moderate' : 'High activity'}
+          </div>
+
           <div className="imu-raw">
             <div className="imu-raw-title" style={{ color: limb.color }}>{limb.seg1} (IMU1)</div>
             <div className="imu-vals">
@@ -313,6 +328,18 @@ export default function VisualizationPage({ onPageChange }) {
               <Tooltip contentStyle={{ background: '#1a1a2e', border: 'none', borderRadius: 8, fontSize: 11 }} labelFormatter={() => ''} />
               <Line type="monotone" dataKey="fsr" stroke="#ff6b6b" dot={false} strokeWidth={2} name="Pressure" />
               <Line type="monotone" dataKey="flex" stroke="#00c2ff" dot={false} strokeWidth={2} name="Flex" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="viz-card chart-card wide-card">
+          <div className="card-label">EMG — Muscle Activity History</div>
+          <ResponsiveContainer width="100%" height={140}>
+            <LineChart data={history}>
+              <XAxis dataKey="t" hide />
+              <YAxis domain={[0, 4095]} tick={{ fill: '#888', fontSize: 10 }} width={40} />
+              <Tooltip contentStyle={{ background: '#1a1a2e', border: 'none', borderRadius: 8, fontSize: 11 }} labelFormatter={() => ''} />
+              <Line type="monotone" dataKey="emg" stroke="#a855f7" dot={false} strokeWidth={2} name="EMG" />
             </LineChart>
           </ResponsiveContainer>
         </div>
